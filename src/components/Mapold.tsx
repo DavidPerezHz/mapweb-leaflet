@@ -15,9 +15,6 @@ export const Mapold = () => {
     zoom: 5,
   };
 
-  console.log(API_KEY);
-  
-
   return (
     <div style={{ height: "500px", width: "100%" }}>
       {/* <GoogleMapReact
