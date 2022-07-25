@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Chart } from "../components/Chart";
-import { IoIosMap, IoIosNavigate } from "react-icons/io";
 import { DataTablePlaces } from "../components/DataTablePlaces";
 
 export const HomeScreen = () => {
@@ -33,16 +32,12 @@ export const HomeScreen = () => {
     <div>
       <div className='containerGeolocation' hidden>
         <h1>Geolocación</h1>
-        <p>
-          <b>Longitude:</b> {state.longitude}{" "}
-        </p>
-        <p>
-          <b>Latitude:</b> {state.latitude}{" "}
-        </p>
+        <p> <b>Longitude:</b> { state.longitude } </p>
+        <p> <b>Latitude:</b> { state.latitude } </p>
         {isLoading && (
           <Link
             to={{ pathname: "/Map" }}
-            state={state}
+            state={ state }
           >
             Ver mi locación
           </Link>

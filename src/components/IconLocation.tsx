@@ -14,6 +14,6 @@ interface PropsIcon {
 export const IconLocation = new Icon<PropsIcon>({
   iconUrl: require("../assests/icons8-ubicación-del-usuario-48.png"),
   iconRetinaUrl: require("../assests/icons8-ubicación-del-usuario-48.png"),
-  iconSize: [25, 25],
+  iconSize: [40, 40],
   className: "leaflet-venue-icon",
 });

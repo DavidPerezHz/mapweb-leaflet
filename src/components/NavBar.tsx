@@ -1,16 +1,13 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { IoIosNavigate, IoMdHome } from "react-icons/io";
-import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
+import {  NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { HomeScreen } from "../screens/HomeScreen";
 import { MapScreen } from "../screens/MapScreen";
-// import { Route, NavLink } from "react-router-dom";
 
 
 
 export const NavBar = () => {
-
-  const [click, setClick] = useState<boolean>(false);
 
   return (
     <>

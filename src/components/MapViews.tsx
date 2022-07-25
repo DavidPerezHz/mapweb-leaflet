@@ -6,8 +6,6 @@ import { Markers } from "./Markers";
 import { Place } from "../interfaces/interfacesPlaces";
 import { useLocation } from "react-router-dom";
 
-import { createBrowserHistory } from "history";
-
 import apiConnection from "../api/apiConnection";
 
 
@@ -114,7 +112,6 @@ interface PropsState {
 } 
 
 export const MapViews = () => {
-  // const history = createBrowserHistory({ window });
 
   const location: any = useLocation();
 
@@ -132,28 +129,28 @@ export const MapViews = () => {
     getPlaces();
   }, []);
   
-  useEffect(() => {
-    setTimeout(() => {
-      if (location.state?.latitude && location.state?.longitude)
-        setCurrentLocation();
-    }, 1000);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (location.state?.latitude && location.state?.longitude)
+  //       setCurrentLocation();
+  //   }, 1000);
     
-  }, [ location ]);
+  // }, [ location ]);
 
-  const setCurrentLocation = () => {
-    const currentLocation = {
-      lat: location.state.latitude,
-      lng: location.state.longitude,
-    };
+  // const setCurrentLocation = () => {
+  //   const currentLocation = {
+  //     lat: location.state.latitude,
+  //     lng: location.state.longitude,
+  //   };
 
-    setStateCurrent({
-      ...stateCurrent,
-      currentLocation,
-      zoom: 15,
-    });
-    console.log(stateCurrent);
-    // history.replace({ pathname: "/map" }, {});
-  };
+  //   setStateCurrent({
+  //     ...stateCurrent,
+  //     currentLocation,
+  //     zoom: 15,
+  //   });
+  //   console.log(stateCurrent);
+  //   // history.replace({ pathname: "/map" }, {});
+  // };
 
   const getPlaces = async () => {
     await apiConnection.get("/places").then(function (response) {

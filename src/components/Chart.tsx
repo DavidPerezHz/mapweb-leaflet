@@ -30,7 +30,9 @@ export const Chart = () => {
   }, [ ]);
   
   const getPlacesVentas = async () => {
-    await apiConnection.get<PropVentas[]>("/ventas").then(function (response) {      
+    await apiConnection
+      .get<PropVentas[]>("/ventas")
+      .then(function (response) {      
       const newventa = [...response.data].map((venta) => { 
         
         return {
@@ -42,7 +44,10 @@ export const Chart = () => {
 
       setDataVenta([ ...newventa ]);
       setIsLoading(true);
-    });
+    })
+    .catch(( error ) => {
+      console.log({error});
+    })
   }
 
   const options = {
@@ -112,21 +117,24 @@ export const Chart = () => {
   return (
     <div className="chartPie">
       {
-        !isLoading && (
+        !isLoading ? (
           <div>Cargando Chart....</div>
+        ): (
+          <>
+            <PieChart highcharts={ Highcharts } options={ options } />
+            <div className="infoZona">
+              <h2>Venta total por zona</h2>
+              <div className="zona">
+                {
+                  dataVenta.map((venta, key) => (
+                    <span key={key}><b>{ venta.name }:</b>{ currentFormat(venta.total) }</span>
+                  ))
+                }
+              </div>
+            </div>
+          </>
         )
       }
-      <PieChart highcharts={Highcharts} options={options} />
-      <div className="infoZona">
-        <h2>Venta total por zona</h2>
-        <div className="zona">
-          {
-            dataVenta.map((venta, key) => (
-              <span key={key}><b>{ venta.name }:</b>{ currentFormat(venta.total) }</span>
-            ))
-          }
-        </div>
-      </div>
     </div>
   );
 };
