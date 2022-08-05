@@ -1,6 +1,5 @@
 
 import L, { Icon } from "leaflet";
-
 import IconUser from "../assests/icons8-ubicación-del-usuario-48.png";
 
 interface PropsIcon {
